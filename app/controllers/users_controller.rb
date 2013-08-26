@@ -24,7 +24,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @qr = RQRCode::QRCode.new(users_url)
+    @qr = RQRCode::QRCode.new(users_url, :size => 10, :level => :m)
     @microposts = @user.microposts.paginate(page: params[:page])
   end
 
