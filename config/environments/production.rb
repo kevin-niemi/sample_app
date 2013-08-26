@@ -74,6 +74,7 @@ SampleApp::Application.configure do
     authentication:       'plain',
     enable_starttls_auto: true
   }
+  config.action_mailer.default_url_options[:host] = "https://shielded-spire-5845.herokuapp.com"
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
   # the I18n.default_locale when a translation can not be found).
