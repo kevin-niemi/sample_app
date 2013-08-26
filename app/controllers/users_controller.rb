@@ -1,3 +1,5 @@
+require 'rqrcode'
+
 class UsersController < ApplicationController
   before_action :signed_in_user,  only: [:index, :edit, :update, :destroy]
   before_action :correct_user,    only: [:edit, :update]
@@ -22,6 +24,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @qr = RQRCode::QRCode.new(users_url)
     @microposts = @user.microposts.paginate(page: params[:page])
   end
 
