@@ -3,7 +3,6 @@ class UserMailer < ActionMailer::Base
 
   def welcome_email(user)
     @user = user
-    @url = 'http://localhost:3000/signin'
-    mail(to: @user.email, subject: "Welcome to the MicroPost Site!")
+    mail(to: "#{user.name} <#{user.email}>", subject: "Welcome to the MicroPost Site!")
   end
 end
